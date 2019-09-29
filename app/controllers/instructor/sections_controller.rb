@@ -1,7 +1,7 @@
 class Instructor::SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_section, :only => [:create]
-  before_action :require_authorized_for_section_update, :only => [:update]
+  before_action :require_authorized_for_current_course, only: [:new, :create]
+  before_action :require_authorized_for_current_section, only: [:update]
 
   def new
     @section = Section.new
